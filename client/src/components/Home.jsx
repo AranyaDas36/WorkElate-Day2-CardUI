@@ -42,7 +42,7 @@ export function Home() {
       await axios.post(`${API_BASE_URL}/tasks`, task);
       fetchTasks();
       setShowCreate(false);
-      showToast('Task created successfully');
+      showToast('Task created successfully!');
     } catch (err) {
       setError('Failed to create task');
     }
@@ -53,7 +53,7 @@ export function Home() {
     try {
       await axios.put(`${API_BASE_URL}/tasks/${id}`, updatedTask);
       fetchTasks();
-      showToast('Task updated successfully');
+      showToast('Task updated successfully!');
     } catch (err) {
       setError('Failed to update task');
     }
@@ -64,9 +64,9 @@ export function Home() {
     try {
       await axios.delete(`${API_BASE_URL}/tasks/${id}`);
       fetchTasks();
-      showToast('Task deleted successfully');
+      showToast('Task deleted successfully!');
     } catch (err) {
-      setError('Failed to delete task');
+      setError('Failed to delete task!');
     }
   };
 
@@ -89,7 +89,7 @@ export function Home() {
     <div className="min-h-screen w-full bg-gradient-to-r from-[#168C82] to-[#2893D4] sm:p-6 lg:p-8 flex flex-col">
       {/* Toast Notification */}
       {toast && (
-        <div className="fixed top-6 right-6 z-[100] text-green-600 px-6 py-3 rounded-lg shadow-lg font-semibold animate-fade-in">
+        <div className="fixed top-6 right-6 z-[100] bg-teal-700 text-white px-6 py-3 font-bold border-1 rounded-4xl text-xl animate-fade-in">
           {toast}
         </div>
       )}
