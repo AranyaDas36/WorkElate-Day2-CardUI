@@ -86,7 +86,7 @@ export function Home() {
   }, [tasks, selectedTag]);
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-blue-50 to-white p-4 sm:p-6 lg:p-8 flex flex-col">
+    <div className="min-h-screen w-full bg-gradient-to-r from-[#168C82] to-[#2893D4] sm:p-6 lg:p-8 flex flex-col">
       {/* Toast Notification */}
       {toast && (
         <div className="fixed top-6 right-6 z-[100] text-green-600 px-6 py-3 rounded-lg shadow-lg font-semibold animate-fade-in">
@@ -94,12 +94,17 @@ export function Home() {
         </div>
       )}
       <header className="mb-8">
-        <h2 className="text-4xl font-extrabold text-center text-blue-700 tracking-tight">Card UI</h2>
+      <h2 className="text-6xl font-extrabold text-center tracking-tight bg-gradient-to-r from-white to-zinc-300 bg-clip-text text-transparent">
+  Card.<span className="lowercase">ui</span>
+</h2>
+
+
+
       </header>
       {/* Tag Filter UI */}
       <div className="flex flex-wrap gap-2 justify-center mb-8">
         <button
-          className={`px-4 py-1 rounded-full border text-sm font-medium transition shadow-sm ${selectedTag === 'All' ? 'bg-blue-600 text-white border-blue-600' : 'bg-white text-gray-700 border-gray-300 hover:bg-blue-50'}`}
+          className={`px-4 py-1 rounded-full border text-sm font-medium transition shadow-sm ${selectedTag === 'All' ? 'bg-teal-700 text-white border-blue-300' : 'bg-white text-gray-700 border-gray-300 hover:bg-blue-50'}`}
           onClick={() => setSelectedTag('All')}
         >
           All
@@ -107,7 +112,7 @@ export function Home() {
         {allTags.map(tag => (
           <button
             key={tag}
-            className={`px-4 py-1 rounded-full border text-sm font-medium transition shadow-sm ${selectedTag === tag ? 'bg-blue-600 text-white border-blue-600' : 'bg-white text-gray-700 border-gray-300 hover:bg-blue-50'}`}
+            className={`px-4 py-1 rounded-full border text-sm font-medium transition shadow-sm ${selectedTag === tag ? 'bg-teal-700 text-white border-black-600' : 'bg-white text-gray-700 border-gray-300 hover:bg-blue-50'}`}
             onClick={() => setSelectedTag(tag)}
           >
             {tag}
@@ -138,7 +143,7 @@ export function Home() {
       {/* Floating Add Button */}
       <button
         onClick={() => setShowCreate(true)}
-        className="fixed bottom-8 right-8 w-16 h-16 rounded-full bg-blue-600 text-white text-4xl shadow-lg flex items-center justify-center hover:bg-blue-700 transition z-50 border-4 border-white"
+        className="fixed bottom-8 right-8 w-16 h-16 rounded-full bg-teal-700 text-white text-4xl shadow-lg flex items-center justify-center hover:bg-teal-800 transition z-50 border-4 border-white"
         aria-label="Add Task"
       >
         +

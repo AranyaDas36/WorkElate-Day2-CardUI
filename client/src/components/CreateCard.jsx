@@ -16,7 +16,7 @@ export function CreateCard({ onCreate }) {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4 mb-2">
-      <h4 className="text-lg font-bold mb-2 text-blue-700">Create New Task</h4>
+      <h4 className="text-lg font-bold mb-2 text-teal-700">Create New Task</h4>
       <input
         type="text"
         placeholder="Title"
@@ -40,7 +40,7 @@ export function CreateCard({ onCreate }) {
         onChange={e => setTags(e.target.value)}
         className="border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-blue-50"
       />
-      <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition font-semibold shadow">Add</button>
+      <button type="submit" className="bg-teal-700 text-white px-4 py-2 rounded-lg hover:bg-teal-900 transition font-semibold shadow">Add</button>
     </form>
   );
 }
