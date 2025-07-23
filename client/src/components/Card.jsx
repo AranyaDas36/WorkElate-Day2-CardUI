@@ -50,34 +50,48 @@ export function Card({ task, onUpdate, onDelete, showToast }) {
       </div>
       {/* Modal Popup for Card Details */}
       {showModal && !editing && (
-        <div className="fixed inset-0 flex items-center justify-center z-50 p-4 pointer-events-none">
-          <div className="absolute inset-0 bg-white/30 backdrop-blur-sm z-0" />
-          <div className="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md relative pointer-events-auto z-10">
-            <button
-              onClick={() => setShowModal(false)}
-              className="absolute top-2 right-2 text-2xl text-gray-400 hover:text-gray-600"
-              aria-label="Close"
+  <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+    {/* Beautiful gradient backdrop */}
+    <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-black/30 to-black/20 backdrop-blur-sm transition-opacity" />
+
+    {/* Modal box with animation */}
+    <div className="relative z-10 w-full max-w-md p-8 bg-white rounded-2xl shadow-2xl pointer-events-auto animate-scaleIn">
+      {/* Close button */}
+      <button
+        onClick={() => setShowModal(false)}
+        className="absolute top-3 right-3 text-2xl text-gray-400 hover:text-gray-600"
+        aria-label="Close"
+      >
+        ×
+      </button>
+
+      <h3 className="text-2xl font-bold mb-4 text-teal-700">{task.title}</h3>
+      <p className="mb-4 text-gray-700 whitespace-pre-line break-words">{task.description}</p>
+
+      <div className="flex flex-wrap gap-2">
+        {task.tags &&
+          task.tags.map((tag, idx) => (
+            <span
+              key={idx}
+              className="bg-blue-100 text-blue-700 rounded-full px-3 py-1 text-xs font-semibold shadow-sm"
             >
-              ×
-            </button>
-            <h3 className="text-2xl font-bold mb-4 text-teal-700">{task.title}</h3>
-            <p className="mb-4 text-gray-700 whitespace-pre-line break-words">{task.description}</p>
-            <div className="flex flex-wrap gap-2">
-              {task.tags && task.tags.map((tag, idx) => (
-                <span key={idx} className="bg-blue-100 text-blue-700 rounded-full px-3 py-1 text-xs font-semibold shadow-sm">{tag}</span>
-              ))}
-            </div>
-            <div className="flex gap-2 mt-6 justify-end">
-              <button
-                onClick={() => setShowDeleteConfirm(true)}
-                className="px-4 py-2 rounded-lg bg-red-500 text-white hover:bg-red-600 transition font-medium shadow"
-              >
-                Delete
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+              {tag}
+            </span>
+          ))}
+      </div>
+
+      <div className="flex gap-2 mt-6 justify-end">
+        <button
+          onClick={() => setShowDeleteConfirm(true)}
+          className="px-4 py-2 rounded-lg bg-red-500 text-white hover:bg-red-600 transition font-medium shadow"
+        >
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
       {/* Edit Modal */}
       {editing && (
         <div className="fixed inset-0 flex items-center justify-center z-50 p-4 pointer-events-none">
@@ -106,7 +120,7 @@ export function Card({ task, onUpdate, onDelete, showToast }) {
       {showDeleteConfirm && (
         <div className="fixed inset-0 flex items-center justify-center z-50 p-4 pointer-events-none">
           <div className="absolute inset-0 bg-white/30 backdrop-blur-sm z-0" />
-          <div className="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-sm relative flex flex-col items-center pointer-events-auto z-10">
+          <div className="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md relative flex flex-col items-center pointer-events-auto z-10">
             <h3 className="text-xl font-bold mb-4 text-red-600">Delete Task?</h3>
             <p className="mb-6 text-gray-700 text-center">Are you sure you want to delete this task? This action cannot be undone.</p>
             <div className="flex gap-4">
