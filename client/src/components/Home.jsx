@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Card } from './Card';
 import { CreateCard } from './CreateCard';
 
-const API_BASE_URL = 'http://localhost:3000/api';
+const API_BASE_URL = 'https://cardui.onrender.com/api';
 
 export function Home() {
   const [tasks, setTasks] = useState([]);
